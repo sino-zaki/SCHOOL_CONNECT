@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="高校生の部活動・学校行事情報を共有する掲示板 SCHOOL CONNECT">
+  <title>SCHOOL CONNECT | 高校生の学校コミュニティ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="SCHOOL CONNECT ホーム">
+      <span class="brand-mark">SC</span>
+      <span>SCHOOL <b>CONNECT</b><small>高校生の学校コミュニティ</small></span>
+    </a>
+    <nav class="main-nav" aria-label="メインメニュー">
+      <a href="#posts">掲示板</a>
+      <a href="#about">このサイトについて</a>
+    </nav>
+    <button class="button button-primary header-button" id="openPost">＋ 投稿する</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">YOUR SCHOOL LIFE, CONNECTED</span>
+        <h1>学校生活の「知りたい」と<br><span>「伝えたい」をつなごう。</span></h1>
+        <p>部活動のこと、学校行事のこと。<br>高校生同士で情報をシェアするコミュニティ。</p>
+        <a class="button button-light" href="#posts">投稿を見てみる <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-card card-one"><span>🏀</span><b>部活動</b><small>好きなことを共有しよう</small></div>
+        <div class="hero-card card-two"><span>🎪</span><b>学校行事</b><small>思い出や情報をシェア</small></div>
+        <div class="hero-sticker">つながる<br>学校生活！</div>
+      </div>
+    </section>
+
+    <section class="quick-info" aria-label="サイトの特徴">
+      <div><span class="info-icon">💬</span><span><b>気軽に共有</b><small>学校生活の情報を投稿</small></span></div>
+      <div><span class="info-icon">🔎</span><span><b>簡単に検索</b><small>カテゴリーやキーワードで検索</small></span></div>
+      <div><span class="info-icon">🤝</span><span><b>新しい発見</b><small>いろいろな活動を知ろう</small></span></div>
+    </section>
+
+    <section class="content-section" id="posts">
+      <div class="section-heading">
+        <div><span class="eyebrow blue">COMMUNITY BOARD</span><h2>みんなの投稿</h2><p>気になる話題をチェックしてみよう。</p></div>
+        <button class="button button-primary desktop-post" id="openPost2">＋ 新しく投稿する</button>
+      </div>
+
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="カテゴリーで絞り込む">
+          <button class="filter active" data-category="すべて">すべて</button>
+          <button class="filter" data-category="部活動">🏃 部活動</button>
+          <button class="filter" data-category="学校行事">🎉 学校行事</button>
+          <button class="filter" data-category="その他">📌 その他</button>
+        </div>
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="キーワードで検索..." aria-label="投稿を検索"></label>
+      </div>
+
+      <div class="post-grid" id="postGrid" aria-live="polite"></div>
+      <p class="empty-state" id="emptyState" hidden>投稿が見つかりませんでした。検索条件を変えてみてね。</p>
+      <p class="demo-note">※ 現在はデモ版です。投稿やいいねはこのブラウザ内でのみ動作し、サーバーには保存されません。</p>
+    </section>
+
+    <section class="safety-banner">
+      <span class="safety-icon">🛡️</span>
+      <div><b>安心して利用するために</b><p>本名・住所・電話番号・学校を特定できる情報など、個人情報は投稿しないでください。相手を尊重したコミュニケーションを心がけましょう。</p></div>
+    </section>
+
+    <section class="about-section" id="about">
+      <span class="eyebrow blue">ABOUT US</span>
+      <h2>SCHOOL CONNECTって？</h2>
+      <p>部活動や学校行事について、高校生が情報を共有するための掲示板です。<br>新しい活動を知ったり、学校生活のヒントを見つけたりする場所を目指しています。</p>
+    </section>
+  </main>
+
+  <footer><a class="footer-brand" href="#">SCHOOL CONNECT</a><span>© 2026 SCHOOL CONNECT - 学校生活をもっと楽しく。</span></footer>
+
+  <dialog id="postDialog" class="post-dialog">
+    <form id="postForm">
+      <div class="dialog-heading"><div><span class="eyebrow blue">NEW POST</span><h2>投稿を作成</h2></div><button type="button" class="close-button" id="closePost" aria-label="閉じる">×</button></div>
+      <label>カテゴリー<select id="postCategory" required><option value="部活動">部活動</option><option value="学校行事">学校行事</option><option value="その他">その他</option></select></label>
+      <label>タイトル<input id="postTitle" maxlength="50" required placeholder="例：文化祭の準備が始まりました！"></label>
+      <label>投稿内容<textarea id="postBody" maxlength="300" rows="5" required placeholder="みんなに共有したいことを書いてね（300文字以内）"></textarea></label>
+      <p class="privacy-hint">個人情報や他人のプライバシーに関わる内容は入力しないでください。</p>
+      <button class="button button-primary submit-button" type="submit">投稿する</button>
+    </form>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
